@@ -192,6 +192,44 @@
   </entry>
   
   <entry>
+    <title>Bash介绍与入门</title>
+    <link href="http://yoursite.com/2017/02/06/ch1-Bash%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2017/02/06/ch1-Bash介绍与入门/</id>
+    <published>2017-02-06T02:49:04.000Z</published>
+    <updated>2017-02-06T09:55:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是Bash？"><a href="#什么是Bash？" class="headerlink" title="什么是Bash？"></a>什么是Bash？</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p><strong>Bash（GNU Bourne-Again Shell）</strong>是一个为GNU计划编写的Unix shell，它是许多Linux平台默认使用的shell。<br>shell是一个命令解释器，是介于操作系统内核与用户之间的一个中间层。准确地说，它也是能力很强的计算机语言，被称为解释性语言或脚本语言。它可以通过将系统调用、公共程序、工具和编译过的二进制程序”粘合“在一起来建立应用，这是大多数脚本语言的共同特征</p>
+<p>事实上，所有的UNIX命令和工具再加上公共程序，对于shell脚本来说，都是可调用的。Shell脚本对于管理系统任务和其它的重复工作的例程来说，表现的非常好，根本不需要那些华而不实的成熟紧凑的编译型程序语言。</p>
+<h3 id="2-为什么学Bash？"><a href="#2-为什么学Bash？" class="headerlink" title="2.为什么学Bash？"></a>2.为什么学Bash？</h3><p>对于任何想适当精通一些系统管理知识的人来说，掌握shell脚本知识都是最基本的，即使这些人可能并不打算真正的编写一些脚本。</p>
+<h2 id="初步练习"><a href="#初步练习" class="headerlink" title="初步练习"></a>初步练习</h2><h3 id="1-Hello-World"><a href="#1-Hello-World" class="headerlink" title="1.Hello World"></a>1.Hello World</h3><p>Bash之Hello World  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim hello.sh</div></pre></td></tr></table></figure>
+<p>使用vim编辑hello.sh ，输入如下代码并保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#this is a comment</div><div class="line">echo Hello World</div></pre></td></tr></table></figure>
+<p>运行Bash脚本的方式：</p>
+<p>使用shell来执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sh hello.sh</div><div class="line"># 使用bash来执行</div><div class="line">$ bash hello.sh</div></pre></td></tr></table></figure>
+<p>还可以让脚本本身就具有<strong>可执行权限</strong>，通过chmod命令可以修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 赋予脚本的所有者该执行权限，允许该用户执行该脚本</div><div class="line">$ chmod u+rx hello.sh</div><div class="line"># 执行命令，这将使用脚本第一行指定的shell来执行，如果指定shell不存在，将使用系统默认shell来执行</div><div class="line">$  ./hello.sh</div></pre></td></tr></table></figure>
+<h3 id="2-使用脚本清除-var-log下的log文件"><a href="#2-使用脚本清除-var-log下的log文件" class="headerlink" title="2.使用脚本清除/var/log下的log文件"></a>2.使用脚本清除/var/log下的log文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim cleanlogs.sh</div></pre></td></tr></table></figure>
+<p>输入如下代码，并保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line"># 初始化一个变量</div><div class="line">LOG_DIR=/var/log</div><div class="line"></div><div class="line">cd $LOG_DIR</div><div class="line"></div><div class="line">cat /dev/null &gt; messages</div><div class="line">cat /dev/null &gt; wtmp</div><div class="line"></div><div class="line">echo &quot;Logs cleaned up.&quot;</div><div class="line"></div><div class="line">exit</div></pre></td></tr></table></figure>
+<p>运行脚本前，先看看 /var/log/ 下文件内是否有内容。运行此脚本后，文件的内容将被清除。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是Bash？&quot;&gt;&lt;a href=&quot;#什么是Bash？&quot; class=&quot;headerlink&quot; title=&quot;什么是Bash？&quot;&gt;&lt;/a&gt;什么是Bash？&lt;/h2&gt;&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
+    
+    
+      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Bash中的特殊字符（上）</title>
     <link href="http://yoursite.com/2017/02/06/ch2-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
     <id>http://yoursite.com/2017/02/06/ch2-Bash中的特殊字符（上）/</id>
@@ -276,52 +314,13 @@
   </entry>
   
   <entry>
-    <title>Bash介绍与入门</title>
-    <link href="http://yoursite.com/2017/02/06/ch1-Bash%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2017/02/06/ch1-Bash介绍与入门/</id>
-    <published>2017-02-06T02:49:04.000Z</published>
-    <updated>2017-02-06T09:55:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什么是Bash？"><a href="#什么是Bash？" class="headerlink" title="什么是Bash？"></a>什么是Bash？</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p><strong>Bash（GNU Bourne-Again Shell）</strong>是一个为GNU计划编写的Unix shell，它是许多Linux平台默认使用的shell。<br>shell是一个命令解释器，是介于操作系统内核与用户之间的一个中间层。准确地说，它也是能力很强的计算机语言，被称为解释性语言或脚本语言。它可以通过将系统调用、公共程序、工具和编译过的二进制程序”粘合“在一起来建立应用，这是大多数脚本语言的共同特征</p>
-<p>事实上，所有的UNIX命令和工具再加上公共程序，对于shell脚本来说，都是可调用的。Shell脚本对于管理系统任务和其它的重复工作的例程来说，表现的非常好，根本不需要那些华而不实的成熟紧凑的编译型程序语言。</p>
-<h3 id="2-为什么学Bash？"><a href="#2-为什么学Bash？" class="headerlink" title="2.为什么学Bash？"></a>2.为什么学Bash？</h3><p>对于任何想适当精通一些系统管理知识的人来说，掌握shell脚本知识都是最基本的，即使这些人可能并不打算真正的编写一些脚本。</p>
-<h2 id="初步练习"><a href="#初步练习" class="headerlink" title="初步练习"></a>初步练习</h2><h3 id="1-Hello-World"><a href="#1-Hello-World" class="headerlink" title="1.Hello World"></a>1.Hello World</h3><p>Bash之Hello World  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim hello.sh</div></pre></td></tr></table></figure>
-<p>使用vim编辑hello.sh ，输入如下代码并保存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#this is a comment</div><div class="line">echo Hello World</div></pre></td></tr></table></figure>
-<p>运行Bash脚本的方式：</p>
-<p>使用shell来执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sh hello.sh</div><div class="line"># 使用bash来执行</div><div class="line">$ bash hello.sh</div></pre></td></tr></table></figure>
-<p>还可以让脚本本身就具有<strong>可执行权限</strong>，通过chmod命令可以修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 赋予脚本的所有者该执行权限，允许该用户执行该脚本</div><div class="line">$ chmod u+rx hello.sh</div><div class="line"># 执行命令，这将使用脚本第一行指定的shell来执行，如果指定shell不存在，将使用系统默认shell来执行</div><div class="line">$  ./hello.sh</div></pre></td></tr></table></figure>
-<h3 id="2-使用脚本清除-var-log下的log文件"><a href="#2-使用脚本清除-var-log下的log文件" class="headerlink" title="2.使用脚本清除/var/log下的log文件"></a>2.使用脚本清除/var/log下的log文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim cleanlogs.sh</div></pre></td></tr></table></figure>
-<p>输入如下代码，并保存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line"># 初始化一个变量</div><div class="line">LOG_DIR=/var/log</div><div class="line"></div><div class="line">cd $LOG_DIR</div><div class="line"></div><div class="line">cat /dev/null &gt; messages</div><div class="line">cat /dev/null &gt; wtmp</div><div class="line"></div><div class="line">echo &quot;Logs cleaned up.&quot;</div><div class="line"></div><div class="line">exit</div></pre></td></tr></table></figure>
-<p>运行脚本前，先看看 /var/log/ 下文件内是否有内容。运行此脚本后，文件的内容将被清除。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;什么是Bash？&quot;&gt;&lt;a href=&quot;#什么是Bash？&quot; class=&quot;headerlink&quot; title=&quot;什么是Bash？&quot;&gt;&lt;/a&gt;什么是Bash？&lt;/h2&gt;&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; 
-    
-    </summary>
-    
-      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
-    
-    
-      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Bash中的特殊字符（下）</title>
     <link href="http://yoursite.com/2017/02/06/ch3-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
     <id>http://yoursite.com/2017/02/06/ch3-Bash中的特殊字符（下）/</id>
     <published>2017-02-06T02:49:04.000Z</published>
-    <updated>2017-02-06T12:36:59.000Z</updated>
+    <updated>2017-02-08T10:00:43.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="小括号（-）"><a href="#小括号（-）" class="headerlink" title="小括号（( )）"></a>小括号（( )）</h2><p>###<br>1.命令组</p>
-<p>在括号中的命令列表，将会作为一个子 shell 来运行。</p>
+    <content type="html"><![CDATA[<h2 id="小括号（-）"><a href="#小括号（-）" class="headerlink" title="小括号（( )）"></a>小括号（( )）</h2><h3 id="1-命令组"><a href="#1-命令组" class="headerlink" title="1.命令组"></a>1.命令组</h3><p>在括号中的命令列表，将会作为一个子 shell 来运行。</p>
 <p>在括号中的变量，由于是在子shell中，所以对于脚本剩下的部分是不可用的。父进程，也就是脚本本身，将不能够读取在子进程中创建的变量，也就是在子shell 中创建的变量。如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
 <p>输入代码：</p>
@@ -390,8 +389,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;小括号（-）&quot;&gt;&lt;a href=&quot;#小括号（-）&quot; class=&quot;headerlink&quot; title=&quot;小括号（( )）&quot;&gt;&lt;/a&gt;小括号（( )）&lt;/h2&gt;&lt;p&gt;###&lt;br&gt;1.命令组&lt;/p&gt;
-&lt;p&gt;在括号中的命令列表，将会作为一个子 shell 来运行。&lt;/
+      &lt;h2 id=&quot;小括号（-）&quot;&gt;&lt;a href=&quot;#小括号（-）&quot; class=&quot;headerlink&quot; title=&quot;小括号（( )）&quot;&gt;&lt;/a&gt;小括号（( )）&lt;/h2&gt;&lt;h3 id=&quot;1-命令组&quot;&gt;&lt;a href=&quot;#1-命令组&quot; class=&quot;headerlink&quot; ti
     
     </summary>
     
