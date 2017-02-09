@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-09T09:10:22.000Z</updated>
+  <updated>2017-02-09T09:12:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,22 +20,18 @@
     <link href="http://yoursite.com/2017/02/09/ch8-%E6%93%8D%E4%BD%9C%E7%AC%A6/"/>
     <id>http://yoursite.com/2017/02/09/ch8-操作符/</id>
     <published>2017-02-09T09:10:22.000Z</published>
-    <updated>2017-02-09T09:10:22.000Z</updated>
+    <updated>2017-02-09T09:12:34.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><h3 id="1-变量赋值"><a href="#1-变量赋值" class="headerlink" title="1.变量赋值"></a>1.变量赋值</h3><p>= 通用赋值操作符，可用于算术和字符串赋值。</p>
 <p>var=27<br>category=minerals  # 在”=”之后是不允许出现空白字符的.<br>不要混淆=赋值操作符与 = 测试操作符。也正是因为这一点，在bash里面测试操作符也常写作==，但这可能在其它shell中是不允许的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#    = 在这里是测试操作符</div><div class="line"></div><div class="line">if [ &quot;$string1&quot; = &quot;$string2&quot; ]</div><div class="line"># if [ &quot;X$string1&quot; = &quot;X$string2&quot; ] 是一种更安全的做法,</div><div class="line"># 这样可以防止两个变量中的一个为空所产生的错误.</div><div class="line"># (字符&quot;X&quot;作为前缀在等式两边是可以相互抵消的.)</div><div class="line">then</div><div class="line">  command</div><div class="line">fi</div></pre></td></tr></table></figure>
-<h2 id="算术操作符"><a href="#算术操作符" class="headerlink" title="算术操作符"></a>算术操作符</h2><h3 id="1-简单算术操作符"><a href="#1-简单算术操作符" class="headerlink" title="1.简单算术操作符"></a>1.简单算术操作符</h3><p>操作符    说明</p>
-<ul>
-<li>加法计算</li>
-</ul>
-<ul>
-<li>减法计算</li>
-</ul>
-<ul>
-<li>乘法计算<br>/    除法计算<br>**    幂运算<br>%    模运算，或者是求余运算（返回一次除法运算的余数）<h3 id="2-求最大公约数"><a href="#2-求最大公约数" class="headerlink" title="2.求最大公约数"></a>2.求最大公约数</h3></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<h2 id="算术操作符"><a href="#算术操作符" class="headerlink" title="算术操作符"></a>算术操作符</h2><h3 id="1-简单算术操作符"><a href="#1-简单算术操作符" class="headerlink" title="1.简单算术操作符"></a>1.简单算术操作符</h3><p>操作符    说明<br>+    加法计算</p>
+<p>-    减法计算</p>
+<p>*    乘法计算</p>
+<p>/    除法计算</p>
+<p>**    幂运算</p>
+<p>%    模运算，或者是求余运算（返回一次除法运算的余数）</p>
+<h3 id="2-求最大公约数"><a href="#2-求最大公约数" class="headerlink" title="2.求最大公约数"></a>2.求最大公约数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
 <p>输入代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"># gcd.sh: 最大公约数</div><div class="line">#         使用Euclid的算法</div><div class="line"></div><div class="line">#  两个整数的&quot;最大公约数&quot; (gcd),</div><div class="line">#+ 就是两个整数所能够同时整除的最大的数.</div><div class="line"></div><div class="line">#  Euclid算法采用连续除法.</div><div class="line">#  在每一次循环中,</div><div class="line">#+ 被除数 &lt;---  除数</div><div class="line">#+ 除数 &lt;---  余数</div><div class="line">#+ 直到 余数 = 0.</div><div class="line">#+ 在最后一次循环中, gcd = 被除数.</div><div class="line">#</div><div class="line">#  关于Euclid算法的更精彩的讨论, 可以到</div><div class="line">#+ Jim Loy的站点, http://www.jimloy.com/number/euclids.htm.</div><div class="line"></div><div class="line"></div><div class="line"># ------------------------------------------------------</div><div class="line"># 参数检查</div><div class="line">ARGS=2</div><div class="line">E_BADARGS=65</div><div class="line"></div><div class="line">if [ $# -ne &quot;$ARGS&quot; ]</div><div class="line">then</div><div class="line"> echo &quot;Usage: `basename $0` first-number second-number&quot;</div><div class="line"> exit $E_BADARGS</div><div class="line">fi</div><div class="line"># ------------------------------------------------------</div><div class="line"></div><div class="line"></div><div class="line">gcd ()</div><div class="line">&#123;</div><div class="line"></div><div class="line"> dividend=$1                    #  随意赋值.</div><div class="line"> divisor=$2                     #+ 在这里, 哪个值给的大都没关系.</div><div class="line">                                #  为什么没关系?</div><div class="line"></div><div class="line"> remainder=1                    #  如果在循环中使用了未初始化的变量,</div><div class="line">                                #+ 那么在第一次循环中,</div><div class="line">                                #+ 它将会产生一个错误消息.</div><div class="line"></div><div class="line"> until [ &quot;$remainder&quot; -eq 0 ]</div><div class="line"> do</div><div class="line">   let &quot;remainder = $dividend % $divisor&quot;</div><div class="line">   dividend=$divisor            # 现在使用两个最小的数来重复.</div><div class="line">   divisor=$remainder</div><div class="line"> done                           # Euclid的算法</div><div class="line"></div><div class="line">&#125;                                # Last $dividend is the gcd.</div><div class="line"></div><div class="line"></div><div class="line">gcd $1 $2</div><div class="line"></div><div class="line">echo; echo &quot;GCD of $1 and $2 = $dividend&quot;; echo</div><div class="line"># 或者 echo -e &quot;\nGCD of $1 and $2 = $dividend\n&quot;</div><div class="line"></div><div class="line"></div><div class="line"># Exercise :</div><div class="line"># --------</div><div class="line">#  检查传递进来的命令行参数来确保它们都是整数.</div><div class="line">#+ 如果不是整数, 那就给出一个适当的错误消息并退出脚本.</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>
 <p>运行代码：</p>
@@ -346,6 +342,44 @@
   </entry>
   
   <entry>
+    <title>Bash介绍与入门</title>
+    <link href="http://yoursite.com/2017/02/06/ch1-Bash%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2017/02/06/ch1-Bash介绍与入门/</id>
+    <published>2017-02-06T02:49:04.000Z</published>
+    <updated>2017-02-06T09:55:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是Bash？"><a href="#什么是Bash？" class="headerlink" title="什么是Bash？"></a>什么是Bash？</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p><strong>Bash（GNU Bourne-Again Shell）</strong>是一个为GNU计划编写的Unix shell，它是许多Linux平台默认使用的shell。<br>shell是一个命令解释器，是介于操作系统内核与用户之间的一个中间层。准确地说，它也是能力很强的计算机语言，被称为解释性语言或脚本语言。它可以通过将系统调用、公共程序、工具和编译过的二进制程序”粘合“在一起来建立应用，这是大多数脚本语言的共同特征</p>
+<p>事实上，所有的UNIX命令和工具再加上公共程序，对于shell脚本来说，都是可调用的。Shell脚本对于管理系统任务和其它的重复工作的例程来说，表现的非常好，根本不需要那些华而不实的成熟紧凑的编译型程序语言。</p>
+<h3 id="2-为什么学Bash？"><a href="#2-为什么学Bash？" class="headerlink" title="2.为什么学Bash？"></a>2.为什么学Bash？</h3><p>对于任何想适当精通一些系统管理知识的人来说，掌握shell脚本知识都是最基本的，即使这些人可能并不打算真正的编写一些脚本。</p>
+<h2 id="初步练习"><a href="#初步练习" class="headerlink" title="初步练习"></a>初步练习</h2><h3 id="1-Hello-World"><a href="#1-Hello-World" class="headerlink" title="1.Hello World"></a>1.Hello World</h3><p>Bash之Hello World  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim hello.sh</div></pre></td></tr></table></figure>
+<p>使用vim编辑hello.sh ，输入如下代码并保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#this is a comment</div><div class="line">echo Hello World</div></pre></td></tr></table></figure>
+<p>运行Bash脚本的方式：</p>
+<p>使用shell来执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sh hello.sh</div><div class="line"># 使用bash来执行</div><div class="line">$ bash hello.sh</div></pre></td></tr></table></figure>
+<p>还可以让脚本本身就具有<strong>可执行权限</strong>，通过chmod命令可以修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 赋予脚本的所有者该执行权限，允许该用户执行该脚本</div><div class="line">$ chmod u+rx hello.sh</div><div class="line"># 执行命令，这将使用脚本第一行指定的shell来执行，如果指定shell不存在，将使用系统默认shell来执行</div><div class="line">$  ./hello.sh</div></pre></td></tr></table></figure>
+<h3 id="2-使用脚本清除-var-log下的log文件"><a href="#2-使用脚本清除-var-log下的log文件" class="headerlink" title="2.使用脚本清除/var/log下的log文件"></a>2.使用脚本清除/var/log下的log文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim cleanlogs.sh</div></pre></td></tr></table></figure>
+<p>输入如下代码，并保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line"># 初始化一个变量</div><div class="line">LOG_DIR=/var/log</div><div class="line"></div><div class="line">cd $LOG_DIR</div><div class="line"></div><div class="line">cat /dev/null &gt; messages</div><div class="line">cat /dev/null &gt; wtmp</div><div class="line"></div><div class="line">echo &quot;Logs cleaned up.&quot;</div><div class="line"></div><div class="line">exit</div></pre></td></tr></table></figure>
+<p>运行脚本前，先看看 /var/log/ 下文件内是否有内容。运行此脚本后，文件的内容将被清除。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是Bash？&quot;&gt;&lt;a href=&quot;#什么是Bash？&quot; class=&quot;headerlink&quot; title=&quot;什么是Bash？&quot;&gt;&lt;/a&gt;什么是Bash？&lt;/h2&gt;&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
+    
+    
+      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Bash中的特殊字符（上）</title>
     <link href="http://yoursite.com/2017/02/06/ch2-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
     <id>http://yoursite.com/2017/02/06/ch2-Bash中的特殊字符（上）/</id>
@@ -506,44 +540,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;小括号（-）&quot;&gt;&lt;a href=&quot;#小括号（-）&quot; class=&quot;headerlink&quot; title=&quot;小括号（( )）&quot;&gt;&lt;/a&gt;小括号（( )）&lt;/h2&gt;&lt;h3 id=&quot;1-命令组&quot;&gt;&lt;a href=&quot;#1-命令组&quot; class=&quot;headerlink&quot; ti
-    
-    </summary>
-    
-      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
-    
-    
-      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bash介绍与入门</title>
-    <link href="http://yoursite.com/2017/02/06/ch1-Bash%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%85%A5%E9%97%A8/"/>
-    <id>http://yoursite.com/2017/02/06/ch1-Bash介绍与入门/</id>
-    <published>2017-02-06T02:49:04.000Z</published>
-    <updated>2017-02-06T09:55:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="什么是Bash？"><a href="#什么是Bash？" class="headerlink" title="什么是Bash？"></a>什么是Bash？</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h3><p><strong>Bash（GNU Bourne-Again Shell）</strong>是一个为GNU计划编写的Unix shell，它是许多Linux平台默认使用的shell。<br>shell是一个命令解释器，是介于操作系统内核与用户之间的一个中间层。准确地说，它也是能力很强的计算机语言，被称为解释性语言或脚本语言。它可以通过将系统调用、公共程序、工具和编译过的二进制程序”粘合“在一起来建立应用，这是大多数脚本语言的共同特征</p>
-<p>事实上，所有的UNIX命令和工具再加上公共程序，对于shell脚本来说，都是可调用的。Shell脚本对于管理系统任务和其它的重复工作的例程来说，表现的非常好，根本不需要那些华而不实的成熟紧凑的编译型程序语言。</p>
-<h3 id="2-为什么学Bash？"><a href="#2-为什么学Bash？" class="headerlink" title="2.为什么学Bash？"></a>2.为什么学Bash？</h3><p>对于任何想适当精通一些系统管理知识的人来说，掌握shell脚本知识都是最基本的，即使这些人可能并不打算真正的编写一些脚本。</p>
-<h2 id="初步练习"><a href="#初步练习" class="headerlink" title="初步练习"></a>初步练习</h2><h3 id="1-Hello-World"><a href="#1-Hello-World" class="headerlink" title="1.Hello World"></a>1.Hello World</h3><p>Bash之Hello World  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim hello.sh</div></pre></td></tr></table></figure>
-<p>使用vim编辑hello.sh ，输入如下代码并保存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">#this is a comment</div><div class="line">echo Hello World</div></pre></td></tr></table></figure>
-<p>运行Bash脚本的方式：</p>
-<p>使用shell来执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sh hello.sh</div><div class="line"># 使用bash来执行</div><div class="line">$ bash hello.sh</div></pre></td></tr></table></figure>
-<p>还可以让脚本本身就具有<strong>可执行权限</strong>，通过chmod命令可以修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 赋予脚本的所有者该执行权限，允许该用户执行该脚本</div><div class="line">$ chmod u+rx hello.sh</div><div class="line"># 执行命令，这将使用脚本第一行指定的shell来执行，如果指定shell不存在，将使用系统默认shell来执行</div><div class="line">$  ./hello.sh</div></pre></td></tr></table></figure>
-<h3 id="2-使用脚本清除-var-log下的log文件"><a href="#2-使用脚本清除-var-log下的log文件" class="headerlink" title="2.使用脚本清除/var/log下的log文件"></a>2.使用脚本清除/var/log下的log文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim cleanlogs.sh</div></pre></td></tr></table></figure>
-<p>输入如下代码，并保存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line"># 初始化一个变量</div><div class="line">LOG_DIR=/var/log</div><div class="line"></div><div class="line">cd $LOG_DIR</div><div class="line"></div><div class="line">cat /dev/null &gt; messages</div><div class="line">cat /dev/null &gt; wtmp</div><div class="line"></div><div class="line">echo &quot;Logs cleaned up.&quot;</div><div class="line"></div><div class="line">exit</div></pre></td></tr></table></figure>
-<p>运行脚本前，先看看 /var/log/ 下文件内是否有内容。运行此脚本后，文件的内容将被清除。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;什么是Bash？&quot;&gt;&lt;a href=&quot;#什么是Bash？&quot; class=&quot;headerlink&quot; title=&quot;什么是Bash？&quot;&gt;&lt;/a&gt;什么是Bash？&lt;/h2&gt;&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; 
     
     </summary>
     
