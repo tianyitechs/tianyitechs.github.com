@@ -486,9 +486,9 @@
     <link href="http://yoursite.com/2017/02/06/ch2-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
     <id>http://yoursite.com/2017/02/06/ch2-Bash中的特殊字符（上）/</id>
     <published>2017-02-06T02:49:04.000Z</published>
-    <updated>2017-02-06T10:17:14.000Z</updated>
+    <updated>2017-02-10T07:54:17.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="符号"><a href="#符号" class="headerlink" title="# 符号"></a># 符号</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.# 注释"></a>1.# 注释</h3><p>行首以 # 开头(除#!之外)的是注释。#!是用于指定当前脚本的解释器，我们这里为bash，且应该指明完整路径，所以为/bin/bash</p>
+    <content type="html"><![CDATA[<h2 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.# 注释"></a>1.# 注释</h3><p>行首以 # 开头(除#!之外)的是注释。#!是用于指定当前脚本的解释器，我们这里为bash，且应该指明完整路径，所以为/bin/bash</p>
 <p>当然，在echo中转义的 # 是不能作为注释的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
 <p>输入如下代码，并保存。（中文为注释，无需要输入）</p>
@@ -554,7 +554,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;符号&quot;&gt;&lt;a href=&quot;#符号&quot; class=&quot;headerlink&quot; title=&quot;# 符号&quot;&gt;&lt;/a&gt;# 符号&lt;/h2&gt;&lt;h3 id=&quot;1-注释&quot;&gt;&lt;a href=&quot;#1-注释&quot; class=&quot;headerlink&quot; title=&quot;1.# 注释&quot;&gt;&lt;/a&gt;1
+      &lt;h2 id=&quot;符号&quot;&gt;&lt;a href=&quot;#符号&quot; class=&quot;headerlink&quot; title=&quot;符号&quot;&gt;&lt;/a&gt;符号&lt;/h2&gt;&lt;h3 id=&quot;1-注释&quot;&gt;&lt;a href=&quot;#1-注释&quot; class=&quot;headerlink&quot; title=&quot;1.# 注释&quot;&gt;&lt;/a&gt;1.# 注
     
     </summary>
     
