@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-09T09:15:39.000Z</updated>
+  <updated>2017-02-10T02:28:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vi基础</title>
+    <link href="http://yoursite.com/2017/02/10/vi%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2017/02/10/vi基础/</id>
+    <published>2017-02-10T02:23:52.000Z</published>
+    <updated>2017-02-10T02:28:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="vi基础操作"><a href="#vi基础操作" class="headerlink" title="vi基础操作"></a>vi基础操作</h2><h3 id="1、vi的基本概念"><a href="#1、vi的基本概念" class="headerlink" title="1、vi的基本概念"></a>1、vi的基本概念</h3><p>　　 基本上vi分为三种状态，分别是命令模式、插入模式、末行模式（last line mode）</p>
+<h3 id="2、-插入模式"><a href="#2、-插入模式" class="headerlink" title="2、 插入模式"></a>2、 插入模式</h3><p>　　 只有在【插入模式】中，才可以进行文字输入，可以按「ESC」键可回到命令模式。</p>
+<h3 id="3、-末行模式（last-line-mode）"><a href="#3、-末行模式（last-line-mode）" class="headerlink" title="3、 末行模式（last line mode）"></a>3、 末行模式（last line mode）</h3><p>　　 在命令模式下，输入：冒号，可以进入末行模式，</p>
+<p>此时，可以通过命令，将文件保存或退出vi，</p>
+<p>也可以设置编辑环境，如寻找字符串、列出行号……等。</p>
+<h3 id="4、vi的基本操作"><a href="#4、vi的基本操作" class="headerlink" title="4、vi的基本操作"></a>4、vi的基本操作</h3><h3 id="5、-进入vi"><a href="#5、-进入vi" class="headerlink" title="5、 进入vi"></a>5、 进入vi</h3><p>　　 在终端输入vi或vi 文件名，就进入vi全屏幕编辑画面</p>
+<p>进入vi之后，首先处于「命令行模式」，按下i键,可进入到「插入模式」</p>
+<h3 id="6、-切换至插入模式"><a href="#6、-切换至插入模式" class="headerlink" title="6、 切换至插入模式"></a>6、 切换至插入模式</h3><p>　　在「命令行模式」下按一下字母「i」就可以进入「插入模式」，这时才可开始输入文字。</p>
+<p>编辑好内容后,想要保存的话,要先按一下「ESC」键,回到「命令行模式」先</p>
+<h3 id="7、-退出vi及保存文件"><a href="#7、-退出vi及保存文件" class="headerlink" title="7、 退出vi及保存文件"></a>7、 退出vi及保存文件</h3><p>　　 当处于【插入模式】时，要先按「ESC」键,回到「命令行模式」</p>
+<p>然后，在「命令行模式」下，按一下「：」冒号键进入「Last line mode」</p>
+<p>此时,才可以执行相应的保存，退出等命令</p>
+<p>: w 2.txt    将刚才编写的文本,以2.txt名称 写入磁盘，即保存到当前目录下</p>
+<p>: wq  (写到磁盘并退出vi)<br>: q! (强制退出vi，并且不存盘)</p>
+<h3 id="8、命令行模式-下的命令-即功能键"><a href="#8、命令行模式-下的命令-即功能键" class="headerlink" title="8、命令行模式 下的命令,即功能键"></a>8、命令行模式 下的命令,即功能键</h3><p>　　 按「i」切换进入插入模式，是从光标的前一个位置,开始输入文字；</p>
+<p> 　　按「a」进入插入模式，是从目前光标的下一个位置,开始输入文字；</p>
+<p>按「o」进入插入模式后，是插入新的一行，并从新的一行的行首开始输入文字。</p>
+<h3 id="9、-从插入模式回到（切换）为命令行模式"><a href="#9、-从插入模式回到（切换）为命令行模式" class="headerlink" title="9、 从插入模式回到（切换）为命令行模式"></a>9、 从插入模式回到（切换）为命令行模式</h3><p>　　按「ESC」键</p>
+<h3 id="10、-在命令模式下-移动光标"><a href="#10、-在命令模式下-移动光标" class="headerlink" title="10、 在命令模式下,移动光标"></a>10、 在命令模式下,移动光标</h3><p> 　　vi可以直接用键盘上的光标来上下左右移动，</p>
+<p>vi也可以用小写英文字母「h」、「j」、「k」、「l」</p>
+<p>分别控制光标左、下、上、右移一格。</p>
+<p>　　按「ctrl」+「b」：屏幕往“后”移动一页,即翻到上页pageUp。</p>
+<p>　　按「ctrl」+「f」：屏幕往“前”移动一页,即翻到上页pageDown。</p>
+<p>　　按「ctrl」+「u」：屏幕往“上”移动半页。</p>
+<p>　　按「ctrl」+「d」：屏幕往“下”移动半页。</p>
+<p>　　按数字「0」：光标移到所在行的开头。</p>
+<p>　　按「g」：移动到文章的最前面。</p>
+<p>按「G」：移动到文章的最后面。</p>
+<p>　　按「$」：移动到光标所在行的“行尾”。</p>
+<p>　　按「^」：移动到光标所在行的“行首”</p>
+<p>　　按「w」：光标跳到下个单词的开头</p>
+<p>　　按「e」：光标跳到下个单词的结尾</p>
+<p>　　按「b」：光标回到前个单词的开头</p>
+<h3 id="11、-删除文字"><a href="#11、-删除文字" class="headerlink" title="11、 删除文字"></a>11、 删除文字</h3><p>　　「x」：每按一次，删除光标所在位置的“后面”一个字符。</p>
+<p>　　「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符。</p>
+<p>　　「dd」：删除光标所在行。</p>
+<p>　　「#dd」：从光标所在行开始删除#行,#代表任何数字</p>
+<h3 id="12、-复制和粘贴"><a href="#12、-复制和粘贴" class="headerlink" title="12、 复制和粘贴"></a>12、 复制和粘贴</h3><p>　　「yw」：将光标所在之处到字尾的字符复制到缓冲区中。</p>
+<p>　　「#yw」：复制#个字到缓冲区</p>
+<p>　　「yy」：复制光标所在行到缓冲区。</p>
+<p>　　「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。</p>
+<p>　　「p」：将缓冲区内的字符粘贴到光标所在位置。注意：所有与“y”有关的复制命令都<br>必须与“p”配合才能完成复制与粘贴功能。</p>
+<h3 id="13、-撤销上一次操作"><a href="#13、-撤销上一次操作" class="headerlink" title="13、 撤销上一次操作"></a>13、 撤销上一次操作</h3><p>　　「u」：如果误执行一个命令，可以马上按下「u」，撤销上一个操作。按多次“u”<br>可以执行多次回复。</p>
+<h3 id="14、-跳至指定的行"><a href="#14、-跳至指定的行" class="headerlink" title="14、 跳至指定的行"></a>14、 跳至指定的行</h3><p>　　「ctrl」+「g」列出光标所在行的行号。</p>
+<p>　　「#G」：例如，「4G」，表示移动光标至文章的第4行行首。</p>
+<h3 id="15、Last-line-mode下命令简介"><a href="#15、Last-line-mode下命令简介" class="headerlink" title="15、Last line mode下命令简介"></a>15、Last line mode下命令简介</h3><p>　　在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command m<br>ode」下后，再按「：」冒号即可进入「last line mode」。<br>列出行号「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;vi基础操作&quot;&gt;&lt;a href=&quot;#vi基础操作&quot; class=&quot;headerlink&quot; title=&quot;vi基础操作&quot;&gt;&lt;/a&gt;vi基础操作&lt;/h2&gt;&lt;h3 id=&quot;1、vi的基本概念&quot;&gt;&lt;a href=&quot;#1、vi的基本概念&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="vi" scheme="http://yoursite.com/categories/vi/"/>
+    
+    
+      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
+    
+  </entry>
   
   <entry>
     <title>操作符</title>
@@ -380,90 +448,6 @@
   </entry>
   
   <entry>
-    <title>Bash中的特殊字符（上）</title>
-    <link href="http://yoursite.com/2017/02/06/ch2-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/02/06/ch2-Bash中的特殊字符（上）/</id>
-    <published>2017-02-06T02:49:04.000Z</published>
-    <updated>2017-02-06T10:17:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="符号"><a href="#符号" class="headerlink" title="# 符号"></a># 符号</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.# 注释"></a>1.# 注释</h3><p>行首以 # 开头(除#!之外)的是注释。#!是用于指定当前脚本的解释器，我们这里为bash，且应该指明完整路径，所以为/bin/bash</p>
-<p>当然，在echo中转义的 # 是不能作为注释的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入如下代码，并保存。（中文为注释，无需要输入）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">echo &quot;The # here does not begin a comment.&quot;</div><div class="line">echo &apos;The # here does not begin a comment.&apos;</div><div class="line">echo The \# here does not begin a comment.</div><div class="line">echo The # 这里开始一个注释</div><div class="line"></div><div class="line">echo $&#123;PATH#*:&#125;         # 字符串截取，不是一个注释</div><div class="line">echo $(( 2#101011 ))   # 数制转换（使用二进制表示），不是一个注释</div></pre></td></tr></table></figure>
-<p>执行脚本，查看输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div></pre></td></tr></table></figure>
-<p>解释说明</p>
-<p>上面的脚本说明了如何使用echo打印出一段字符串和变量内容，这里采用了几种不同的方式</p>
-<h2 id="分号（-）"><a href="#分号（-）" class="headerlink" title="分号（;）"></a>分号（;）</h2><h3 id="1-命令分隔符"><a href="#1-命令分隔符" class="headerlink" title="1.命令分隔符"></a>1.命令分隔符</h3><p>使用分号（;）可以在同一行上写两个或两个以上的命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test2.sh</div></pre></td></tr></table></figure>
-<p>输入如下代码，并保存。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">echo hello; echo there</div><div class="line">filename=ttt.sh</div><div class="line">if [ -r &quot;$filename&quot; ]; then    # 注意: &quot;if&quot;和&quot;then&quot;需要分隔</div><div class="line">    echo &quot;File $filename exists.&quot;; cp $filename $filename.bak</div><div class="line">else</div><div class="line">    echo &quot;File $filename not found.&quot;; touch $filename</div><div class="line">fi; echo &quot;File test complete.&quot;</div></pre></td></tr></table></figure>
-<p>执行脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bash test2.sh</div></pre></td></tr></table></figure>
-<p>查看结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls</div></pre></td></tr></table></figure>
-<p>解释说明</p>
-<p>上面脚本使用了一个if件分支判断一个文件是否存在，如果文件存在打印相关信息并将该文件备份；如果不存在打印相关信息并创建一个新的文件。</p>
-<h3 id="2-终止case选项（双分号）"><a href="#2-终止case选项（双分号）" class="headerlink" title="2.终止case选项（双分号）"></a>2.终止case选项（双分号）</h3><p>使用双分号（;;）可以终止case选项。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test3.sh</div></pre></td></tr></table></figure>
-<p>输入如下代码，并保存。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">varname=b</div><div class="line"></div><div class="line">case &quot;$varname&quot; in</div><div class="line">    [a-z]) echo &quot;abc&quot;;;</div><div class="line">    [0-9]) echo &quot;123&quot;;;</div><div class="line">esac</div></pre></td></tr></table></figure>
-<p>执行脚本，查看输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test3.sh</div><div class="line">abc</div></pre></td></tr></table></figure>
-<p>解释说明</p>
-<p>上面脚本使用case语句，首先创建了一个变量初始化为b,然后使用case语句判断该变量的范围，并打印相关信息。</p>
-<h2 id="点号（-）"><a href="#点号（-）" class="headerlink" title="点号（.）"></a>点号（.）</h2><h2 id="1-等价于-source-命令"><a href="#1-等价于-source-命令" class="headerlink" title="1.等价于 source 命令"></a>1.等价于 source 命令</h2><p>bash 中的 source 命令用于在当前 bash 环境下读取并执行 FileName.sh 中的命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ source test.sh</div><div class="line">Hello World</div><div class="line">$ . test.sh</div><div class="line">Hello World</div></pre></td></tr></table></figure>
-<h2 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h2><h3 id="1-双引号（”"><a href="#1-双引号（”" class="headerlink" title="1.双引号（”)"></a>1.双引号（”)</h3><p>“STRING” 将会阻止（解释）STRING中大部分特殊的字符。后面的实验会详细说明。</p>
-<h3 id="2-单引号（’）"><a href="#2-单引号（’）" class="headerlink" title="2.单引号（’）"></a>2.单引号（’）</h3><p>‘STRING’ 将会阻止STRING中所有特殊字符的解释，这是一种比使用”更强烈的形式。后面的实验会详细说明。</p>
-<h2 id="斜线和反斜线"><a href="#斜线和反斜线" class="headerlink" title="斜线和反斜线"></a>斜线和反斜线</h2><h3 id="1-斜线（-）"><a href="#1-斜线（-）" class="headerlink" title="1.斜线（/）"></a>1.斜线（/）</h3><p>文件名路径分隔符。分隔文件名不同的部分（如/home/bozo/projects/Makefile）。也可以用来作为除法算术操作符。</p>
-<h3 id="2-反斜线（-）"><a href="#2-反斜线（-）" class="headerlink" title="2.反斜线（\）"></a>2.反斜线（\）</h3><p>一种对单字符的引用机制。\X 将会“转义”字符X。这等价于”X”，也等价于’X’。\ 通常用来转义双引号（”）和单引号（’），这样双引号和单引号就不会被解释成特殊含义了。</p>
-<h2 id="反引号（-）"><a href="#反引号（-）" class="headerlink" title="反引号（`）"></a>反引号（`）</h2><h3 id="1-命令替换"><a href="#1-命令替换" class="headerlink" title="1.命令替换"></a>1.命令替换</h3><p>command 结构可以将命令的输出赋值到一个变量中去。在后边的后置引用(backquotes)或后置标记(backticks)中也会讲解。</p>
-<p>反引号中的命令会优先执行，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cp `mkdir back` test.sh back</div><div class="line">$ ls</div></pre></td></tr></table></figure>
-<p>先创建了 back 目录，然后复制 test.sh 到 back 目录</p>
-<h2 id="冒号（-）"><a href="#冒号（-）" class="headerlink" title="冒号（:）"></a>冒号（:）</h2><h3 id="1-空命令"><a href="#1-空命令" class="headerlink" title="1.空命令"></a>1.空命令</h3><p>等价于“NOP”（no op，一个什么也不干的命令）。也可以被认为与shell的内建命令true作用相同。“:”命令是一个bash的内建命令，它的退出码（exit status）是（0）。</p>
-<p>如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">while :</div><div class="line">do</div><div class="line">    echo &quot;endless loop&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
-<p>等价于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">while true</div><div class="line">do</div><div class="line">    echo &quot;endless loop&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
-<p>可以在 if/then 中作占位符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">condition=5</div><div class="line"></div><div class="line">if [ $condition -gt 0 ]</div><div class="line">then :   # 什么都不做，退出分支</div><div class="line">else</div><div class="line">    echo &quot;$condition&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
-<h3 id="2-变量扩展-子串替换"><a href="#2-变量扩展-子串替换" class="headerlink" title="2.变量扩展/子串替换"></a>2.变量扩展/子串替换</h3><p>在与&gt;重定向操作符结合使用时，将会把一个文件清空，但是并不会修改这个文件的权限。如果之前这个文件并不存在，那么就创建这个文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ : &gt; test.sh   # 文件“test.sh”现在被清空了</div><div class="line"># 与 cat /dev/null &gt; test.sh 的作用相同</div><div class="line"># 然而,这并不会产生一个新的进程, 因为“:”是一个内建命令</div></pre></td></tr></table></figure>
-<p>在与&gt;&gt;重定向操作符结合使用时，将不会对预先存在的目标文件(: &gt;&gt; target_file)产生任何影响。如果这个文件之前并不存在，那么就创建它。</p>
-<p>也可能用来作为注释行，但不推荐这么做。使用 # 来注释的话，将关闭剩余行的错误检查，所以可以在注释行中写任何东西。然而，使用 : 的话将不会这样。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ : This is a comment that generates an error, ( if [ $x -eq 3] )</div></pre></td></tr></table></figure>
-<p>“:”还用来在 /etc/passwd 和 PATH 变量中做分隔符，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ echo $PATH</div><div class="line">/usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin:/sbin:/usr/sbin:/usr/games</div><div class="line">$</div></pre></td></tr></table></figure>
-<h2 id="问号（-）"><a href="#问号（-）" class="headerlink" title="问号（?）"></a>问号（?）</h2><h3 id="1-测试操作符"><a href="#1-测试操作符" class="headerlink" title="1.测试操作符"></a>1.测试操作符</h3><p>在一个双括号结构中，? 就是C语言的三元操作符，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入如下代码，并保存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=10</div><div class="line">(( t=a&lt;50?8:9 ))</div><div class="line">echo $t</div></pre></td></tr></table></figure>
-<p>运行测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">8</div></pre></td></tr></table></figure>
-<h2 id="美元符号"><a href="#美元符号" class="headerlink" title="美元符号"></a>美元符号</h2><h3 id="1-变量替换"><a href="#1-变量替换" class="headerlink" title="1.变量替换"></a>1.变量替换</h3><p>前面已经用到了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">var1=5</div><div class="line">var2=23skidoo</div><div class="line"></div><div class="line">echo $var1     # 5</div><div class="line">echo $var2     # 23skidoo</div></pre></td></tr></table></figure>
-<p>运行测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div></pre></td></tr></table></figure>
-<h3 id="2-命令替换（同反引号）"><a href="#2-命令替换（同反引号）" class="headerlink" title="2.命令替换（同反引号）"></a>2.命令替换（同反引号）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd $(echo Documents)</div><div class="line">$ pwd</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;符号&quot;&gt;&lt;a href=&quot;#符号&quot; class=&quot;headerlink&quot; title=&quot;# 符号&quot;&gt;&lt;/a&gt;# 符号&lt;/h2&gt;&lt;h3 id=&quot;1-注释&quot;&gt;&lt;a href=&quot;#1-注释&quot; class=&quot;headerlink&quot; title=&quot;1.# 注释&quot;&gt;&lt;/a&gt;1
-    
-    </summary>
-    
-      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
-    
-    
-      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Bash中的特殊字符（下）</title>
     <link href="http://yoursite.com/2017/02/06/ch3-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
     <id>http://yoursite.com/2017/02/06/ch3-Bash中的特殊字符（下）/</id>
@@ -540,6 +524,90 @@
     <summary type="html">
     
       &lt;h2 id=&quot;小括号（-）&quot;&gt;&lt;a href=&quot;#小括号（-）&quot; class=&quot;headerlink&quot; title=&quot;小括号（( )）&quot;&gt;&lt;/a&gt;小括号（( )）&lt;/h2&gt;&lt;h3 id=&quot;1-命令组&quot;&gt;&lt;a href=&quot;#1-命令组&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
+    
+    
+      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bash中的特殊字符（上）</title>
+    <link href="http://yoursite.com/2017/02/06/ch2-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/02/06/ch2-Bash中的特殊字符（上）/</id>
+    <published>2017-02-06T02:49:04.000Z</published>
+    <updated>2017-02-06T10:17:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="符号"><a href="#符号" class="headerlink" title="# 符号"></a># 符号</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.# 注释"></a>1.# 注释</h3><p>行首以 # 开头(除#!之外)的是注释。#!是用于指定当前脚本的解释器，我们这里为bash，且应该指明完整路径，所以为/bin/bash</p>
+<p>当然，在echo中转义的 # 是不能作为注释的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入如下代码，并保存。（中文为注释，无需要输入）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">echo &quot;The # here does not begin a comment.&quot;</div><div class="line">echo &apos;The # here does not begin a comment.&apos;</div><div class="line">echo The \# here does not begin a comment.</div><div class="line">echo The # 这里开始一个注释</div><div class="line"></div><div class="line">echo $&#123;PATH#*:&#125;         # 字符串截取，不是一个注释</div><div class="line">echo $(( 2#101011 ))   # 数制转换（使用二进制表示），不是一个注释</div></pre></td></tr></table></figure>
+<p>执行脚本，查看输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div></pre></td></tr></table></figure>
+<p>解释说明</p>
+<p>上面的脚本说明了如何使用echo打印出一段字符串和变量内容，这里采用了几种不同的方式</p>
+<h2 id="分号（-）"><a href="#分号（-）" class="headerlink" title="分号（;）"></a>分号（;）</h2><h3 id="1-命令分隔符"><a href="#1-命令分隔符" class="headerlink" title="1.命令分隔符"></a>1.命令分隔符</h3><p>使用分号（;）可以在同一行上写两个或两个以上的命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test2.sh</div></pre></td></tr></table></figure>
+<p>输入如下代码，并保存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">echo hello; echo there</div><div class="line">filename=ttt.sh</div><div class="line">if [ -r &quot;$filename&quot; ]; then    # 注意: &quot;if&quot;和&quot;then&quot;需要分隔</div><div class="line">    echo &quot;File $filename exists.&quot;; cp $filename $filename.bak</div><div class="line">else</div><div class="line">    echo &quot;File $filename not found.&quot;; touch $filename</div><div class="line">fi; echo &quot;File test complete.&quot;</div></pre></td></tr></table></figure>
+<p>执行脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bash test2.sh</div></pre></td></tr></table></figure>
+<p>查看结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls</div></pre></td></tr></table></figure>
+<p>解释说明</p>
+<p>上面脚本使用了一个if件分支判断一个文件是否存在，如果文件存在打印相关信息并将该文件备份；如果不存在打印相关信息并创建一个新的文件。</p>
+<h3 id="2-终止case选项（双分号）"><a href="#2-终止case选项（双分号）" class="headerlink" title="2.终止case选项（双分号）"></a>2.终止case选项（双分号）</h3><p>使用双分号（;;）可以终止case选项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test3.sh</div></pre></td></tr></table></figure>
+<p>输入如下代码，并保存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">varname=b</div><div class="line"></div><div class="line">case &quot;$varname&quot; in</div><div class="line">    [a-z]) echo &quot;abc&quot;;;</div><div class="line">    [0-9]) echo &quot;123&quot;;;</div><div class="line">esac</div></pre></td></tr></table></figure>
+<p>执行脚本，查看输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test3.sh</div><div class="line">abc</div></pre></td></tr></table></figure>
+<p>解释说明</p>
+<p>上面脚本使用case语句，首先创建了一个变量初始化为b,然后使用case语句判断该变量的范围，并打印相关信息。</p>
+<h2 id="点号（-）"><a href="#点号（-）" class="headerlink" title="点号（.）"></a>点号（.）</h2><h2 id="1-等价于-source-命令"><a href="#1-等价于-source-命令" class="headerlink" title="1.等价于 source 命令"></a>1.等价于 source 命令</h2><p>bash 中的 source 命令用于在当前 bash 环境下读取并执行 FileName.sh 中的命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ source test.sh</div><div class="line">Hello World</div><div class="line">$ . test.sh</div><div class="line">Hello World</div></pre></td></tr></table></figure>
+<h2 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h2><h3 id="1-双引号（”"><a href="#1-双引号（”" class="headerlink" title="1.双引号（”)"></a>1.双引号（”)</h3><p>“STRING” 将会阻止（解释）STRING中大部分特殊的字符。后面的实验会详细说明。</p>
+<h3 id="2-单引号（’）"><a href="#2-单引号（’）" class="headerlink" title="2.单引号（’）"></a>2.单引号（’）</h3><p>‘STRING’ 将会阻止STRING中所有特殊字符的解释，这是一种比使用”更强烈的形式。后面的实验会详细说明。</p>
+<h2 id="斜线和反斜线"><a href="#斜线和反斜线" class="headerlink" title="斜线和反斜线"></a>斜线和反斜线</h2><h3 id="1-斜线（-）"><a href="#1-斜线（-）" class="headerlink" title="1.斜线（/）"></a>1.斜线（/）</h3><p>文件名路径分隔符。分隔文件名不同的部分（如/home/bozo/projects/Makefile）。也可以用来作为除法算术操作符。</p>
+<h3 id="2-反斜线（-）"><a href="#2-反斜线（-）" class="headerlink" title="2.反斜线（\）"></a>2.反斜线（\）</h3><p>一种对单字符的引用机制。\X 将会“转义”字符X。这等价于”X”，也等价于’X’。\ 通常用来转义双引号（”）和单引号（’），这样双引号和单引号就不会被解释成特殊含义了。</p>
+<h2 id="反引号（-）"><a href="#反引号（-）" class="headerlink" title="反引号（`）"></a>反引号（`）</h2><h3 id="1-命令替换"><a href="#1-命令替换" class="headerlink" title="1.命令替换"></a>1.命令替换</h3><p>command 结构可以将命令的输出赋值到一个变量中去。在后边的后置引用(backquotes)或后置标记(backticks)中也会讲解。</p>
+<p>反引号中的命令会优先执行，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cp `mkdir back` test.sh back</div><div class="line">$ ls</div></pre></td></tr></table></figure>
+<p>先创建了 back 目录，然后复制 test.sh 到 back 目录</p>
+<h2 id="冒号（-）"><a href="#冒号（-）" class="headerlink" title="冒号（:）"></a>冒号（:）</h2><h3 id="1-空命令"><a href="#1-空命令" class="headerlink" title="1.空命令"></a>1.空命令</h3><p>等价于“NOP”（no op，一个什么也不干的命令）。也可以被认为与shell的内建命令true作用相同。“:”命令是一个bash的内建命令，它的退出码（exit status）是（0）。</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">while :</div><div class="line">do</div><div class="line">    echo &quot;endless loop&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">while true</div><div class="line">do</div><div class="line">    echo &quot;endless loop&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>可以在 if/then 中作占位符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">condition=5</div><div class="line"></div><div class="line">if [ $condition -gt 0 ]</div><div class="line">then :   # 什么都不做，退出分支</div><div class="line">else</div><div class="line">    echo &quot;$condition&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<h3 id="2-变量扩展-子串替换"><a href="#2-变量扩展-子串替换" class="headerlink" title="2.变量扩展/子串替换"></a>2.变量扩展/子串替换</h3><p>在与&gt;重定向操作符结合使用时，将会把一个文件清空，但是并不会修改这个文件的权限。如果之前这个文件并不存在，那么就创建这个文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ : &gt; test.sh   # 文件“test.sh”现在被清空了</div><div class="line"># 与 cat /dev/null &gt; test.sh 的作用相同</div><div class="line"># 然而,这并不会产生一个新的进程, 因为“:”是一个内建命令</div></pre></td></tr></table></figure>
+<p>在与&gt;&gt;重定向操作符结合使用时，将不会对预先存在的目标文件(: &gt;&gt; target_file)产生任何影响。如果这个文件之前并不存在，那么就创建它。</p>
+<p>也可能用来作为注释行，但不推荐这么做。使用 # 来注释的话，将关闭剩余行的错误检查，所以可以在注释行中写任何东西。然而，使用 : 的话将不会这样。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ : This is a comment that generates an error, ( if [ $x -eq 3] )</div></pre></td></tr></table></figure>
+<p>“:”还用来在 /etc/passwd 和 PATH 变量中做分隔符，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ echo $PATH</div><div class="line">/usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin:/sbin:/usr/sbin:/usr/games</div><div class="line">$</div></pre></td></tr></table></figure>
+<h2 id="问号（-）"><a href="#问号（-）" class="headerlink" title="问号（?）"></a>问号（?）</h2><h3 id="1-测试操作符"><a href="#1-测试操作符" class="headerlink" title="1.测试操作符"></a>1.测试操作符</h3><p>在一个双括号结构中，? 就是C语言的三元操作符，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入如下代码，并保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=10</div><div class="line">(( t=a&lt;50?8:9 ))</div><div class="line">echo $t</div></pre></td></tr></table></figure>
+<p>运行测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">8</div></pre></td></tr></table></figure>
+<h2 id="美元符号"><a href="#美元符号" class="headerlink" title="美元符号"></a>美元符号</h2><h3 id="1-变量替换"><a href="#1-变量替换" class="headerlink" title="1.变量替换"></a>1.变量替换</h3><p>前面已经用到了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">var1=5</div><div class="line">var2=23skidoo</div><div class="line"></div><div class="line">echo $var1     # 5</div><div class="line">echo $var2     # 23skidoo</div></pre></td></tr></table></figure>
+<p>运行测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div></pre></td></tr></table></figure>
+<h3 id="2-命令替换（同反引号）"><a href="#2-命令替换（同反引号）" class="headerlink" title="2.命令替换（同反引号）"></a>2.命令替换（同反引号）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd $(echo Documents)</div><div class="line">$ pwd</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;符号&quot;&gt;&lt;a href=&quot;#符号&quot; class=&quot;headerlink&quot; title=&quot;# 符号&quot;&gt;&lt;/a&gt;# 符号&lt;/h2&gt;&lt;h3 id=&quot;1-注释&quot;&gt;&lt;a href=&quot;#1-注释&quot; class=&quot;headerlink&quot; title=&quot;1.# 注释&quot;&gt;&lt;/a&gt;1
     
     </summary>
     
