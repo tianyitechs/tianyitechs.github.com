@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-10T07:35:07.000Z</updated>
+  <updated>2017-02-10T07:46:36.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/02/10/ch7-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"/>
     <id>http://yoursite.com/2017/02/10/ch7-流程控制/</id>
     <published>2017-02-10T07:35:07.000Z</published>
-    <updated>2017-02-10T07:35:07.000Z</updated>
+    <updated>2017-02-10T07:46:36.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1.for循环"></a>1.for循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">for planet in Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto</div><div class="line">do</div><div class="line">echo $planet  </div><div class="line">done</div><div class="line"></div><div class="line">echo</div><div class="line"></div><div class="line">for planet in &quot;Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto&quot;</div><div class="line">do</div><div class="line">echo $planet</div><div class="line">done</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>
 <p>2.while循环</p>
@@ -34,7 +34,7 @@
 <h2 id="测试与分支"><a href="#测试与分支" class="headerlink" title="测试与分支"></a>测试与分支</h2><h3 id="1-case-in-esac"><a href="#1-case-in-esac" class="headerlink" title="1.case (in) / esac"></a>1.case (in) / esac</h3><p>在shell中的case结构与C/C++中的switch结构是相同的。它允许通过判断来选择代码块中多 条路径中的一条。它的作用和多个if/then/else语句的作用相同，是它们的简化结构，特别 适用于创建菜单。case块以esac（case的反向拼写）结尾。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"># 测试字符串范围.</div><div class="line"></div><div class="line">echo; echo &quot;Hit a key, then hit return.&quot;</div><div class="line">read Keypress</div><div class="line"></div><div class="line">case &quot;$Keypress&quot; in</div><div class="line">[[:lower:]]   ) echo &quot;Lowercase letter&quot;;;</div><div class="line">[[:upper:]]   ) echo &quot;Uppercase letter&quot;;;</div><div class="line">[0-9]         ) echo &quot;Digit&quot;;;</div><div class="line">*             ) echo &quot;Punctuation, whitespace, or other&quot;;;</div><div class="line">esac      #  允许字符串的范围出现在[中括号]中,</div><div class="line">#+ 或者出现在POSIX风格的[[双中括号中.</div><div class="line"></div><div class="line">#  在这个例子的第一个版本中,</div><div class="line">#+ 测试大写和小写字符串的工作使用的是</div><div class="line">#+ [a-z] 和 [A-Z].</div><div class="line">#  这种用法在某些特定场合的或某些Linux发行版中不能够正常工作.</div><div class="line">#  POSIX 的风格更具可移植性.</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>
 <h3 id="2-select"><a href="#2-select" class="headerlink" title="2.select"></a>2.select</h3><p>select结构是建立菜单的另一种工具，这种结构是从ksh中引入的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">PS3=&apos;Choose your favorite vegetable: &apos; # 设置提示符字串.</div><div class="line"></div><div class="line">echo</div><div class="line"></div><div class="line">select vegetable in &quot;beans&quot; &quot;carrots&quot; &quot;potatoes&quot; &quot;onions&quot; &quot;rutabagas&quot;</div><div class="line">do</div><div class="line">  echo</div><div class="line">  echo &quot;Your favorite veggie is $vegetable.&quot;</div><div class="line">  echo &quot;Yuck!&quot;</div><div class="line">  echo</div><div class="line">  break  # 如果这里没有 &apos;break&apos; 会发生什么?</div><div class="line">done</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">PS3=&apos;Choose your favorite vegetable: &apos; # 设置提示符字串.</div><div class="line"></div><div class="line">echo</div><div class="line"></div><div class="line">select vegetable in &quot;beans&quot; &quot;carrots&quot; &quot;potatoes&quot; &quot;onions&quot; &quot;rutabagas&quot;</div><div class="line">do</div><div class="line">  echo</div><div class="line">  echo &quot;Your favorite veggie is $vegetable.&quot;</div><div class="line">  echo &quot;Yuck!&quot;</div><div class="line">  echo</div><div class="line">  break  </div><div class="line">done</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -444,93 +444,6 @@
   </entry>
   
   <entry>
-    <title>Bash中的特殊字符（下）</title>
-    <link href="http://yoursite.com/2017/02/06/ch3-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/02/06/ch3-Bash中的特殊字符（下）/</id>
-    <published>2017-02-06T02:49:04.000Z</published>
-    <updated>2017-02-08T10:00:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="小括号（-）"><a href="#小括号（-）" class="headerlink" title="小括号（( )）"></a>小括号（( )）</h2><h3 id="1-命令组"><a href="#1-命令组" class="headerlink" title="1.命令组"></a>1.命令组</h3><p>在括号中的命令列表，将会作为一个子 shell 来运行。</p>
-<p>在括号中的变量，由于是在子shell中，所以对于脚本剩下的部分是不可用的。父进程，也就是脚本本身，将不能够读取在子进程中创建的变量，也就是在子shell 中创建的变量。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=123</div><div class="line">( a=321; )</div><div class="line"></div><div class="line">echo &quot;a = $a&quot;</div></pre></td></tr></table></figure>
-<p>运行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">a = 123</div></pre></td></tr></table></figure>
-<p>在圆括号中 a 变量，更像是一个局部变量。</p>
-<h3 id="2-初始化数组"><a href="#2-初始化数组" class="headerlink" title="2.初始化数组"></a>2.初始化数组</h3><p>创建数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">arr=(1 4 5 7 9 21)</div><div class="line">echo $&#123;arr[3]&#125; # get a value of arr</div></pre></td></tr></table></figure>
-<p>运行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">7</div></pre></td></tr></table></figure>
-<h2 id="大括号（-）"><a href="#大括号（-）" class="headerlink" title="大括号（{ }）"></a>大括号（{ }）</h2><h3 id="1-文件名扩展"><a href="#1-文件名扩展" class="headerlink" title="1.文件名扩展"></a>1.文件名扩展</h3><p>复制 t.txt 的内容到 t.back 中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">if [ ! -w &apos;t.txt&apos; ];</div><div class="line">then</div><div class="line">    touch t.txt</div><div class="line">fi</div><div class="line">echo &apos;test text&apos; &gt;&gt; t.txt</div><div class="line">cp t.&#123;txt,back&#125;</div></pre></td></tr></table></figure>
-<p>运行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div></pre></td></tr></table></figure>
-<p>查看运行结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">$ cat t.txt</div><div class="line">$ cat t.back</div></pre></td></tr></table></figure>
-<p>注意： 在大括号中，不允许有空白，除非这个空白被引用或转义。</p>
-<h3 id="2-代码块"><a href="#2-代码块" class="headerlink" title="2.代码块"></a>2.代码块</h3><p>代码块，又被称为内部组，这个结构事实上创建了一个匿名函数（一个没有名字的函数）。然而，与“标准”函数不同的是，在其中声明的变量，对于脚本其他部分的代码来说还是可见的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=123</div><div class="line">&#123; a=321; &#125;</div><div class="line">echo &quot;a = $a&quot;</div></pre></td></tr></table></figure>
-<p>运行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">a = 321</div></pre></td></tr></table></figure>
-<p>变量 a 的值被更改了。</p>
-<h2 id="中括号（-）"><a href="#中括号（-）" class="headerlink" title="中括号（[ ]）"></a>中括号（[ ]）</h2><h3 id="1-条件测试"><a href="#1-条件测试" class="headerlink" title="1.条件测试"></a>1.条件测试</h3><p>条件测试表达式放在[ ]中。值得注意的是[是shell内建test命令的一部分，并不是/usr/bin/test中的外部命令的一个链接。下列练习中的-lt (less than)表示小于号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure></p>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=5</div><div class="line">if [ $a -lt 10 ]</div><div class="line">then</div><div class="line">    echo &quot;a: $a&quot;</div><div class="line">else</div><div class="line">    echo &apos;a&gt;10&apos;</div><div class="line">fi</div></pre></td></tr></table></figure>
-<p>运行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">a: 5</div><div class="line">$</div></pre></td></tr></table></figure>
-<h3 id="2-数组元素"><a href="#2-数组元素" class="headerlink" title="2.数组元素"></a>2.数组元素</h3><p>在一个array结构的上下文中，中括号用来引用数组中每个元素的索引。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">arr=(12 22 32)</div><div class="line">arr[0]=10</div><div class="line">echo $&#123;arr[0]&#125;</div></pre></td></tr></table></figure>
-<p>运行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">10</div></pre></td></tr></table></figure>
-<h2 id="尖括号（-lt-和-gt-）"><a href="#尖括号（-lt-和-gt-）" class="headerlink" title="尖括号（&lt; 和 &gt;）"></a>尖括号（&lt; 和 &gt;）</h2><h3 id="1-重定向"><a href="#1-重定向" class="headerlink" title="1.重定向"></a>1.重定向</h3><p>test.sh &gt; filename 重定向test.sh的输出到文件 filename 中。如果 filename 存在的话，那么将会被覆盖。</p>
-<p>test.sh &amp;&gt; filename 重定向 test.sh 的 stdout（标准输出）和 stderr（标准错误）到 filename 中。</p>
-<p>test.sh &gt;&amp;2 重定向 test.sh 的 stdout 到 stderr 中。</p>
-<p>test.sh &gt;&gt; filename 把 test.sh 的输出追加到文件 filename 中。如果filename 不存在的话，将会被创建。</p>
-<h2 id="竖线（-）"><a href="#竖线（-）" class="headerlink" title="竖线（|）"></a>竖线（|）</h2><h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>分析前边命令的输出，并将输出作为后边命令的输入。这是一种产生命令链的好方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">tr &apos;a-z&apos; &apos;A-Z&apos;</div><div class="line">exit 0</div></pre></td></tr></table></figure>
-<p>现在让我们输送ls -l的输出到一个脚本中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ chmod 755 test.sh</div><div class="line">$ ls -l | ./test.sh</div></pre></td></tr></table></figure>
-<p>输出的内容均变为了大写字母。</p>
-<h2 id="破折号（-）"><a href="#破折号（-）" class="headerlink" title="破折号（-）"></a>破折号（-）</h2><h3 id="1-选项，前缀"><a href="#1-选项，前缀" class="headerlink" title="1.选项，前缀"></a>1.选项，前缀</h3><p>在所有的命令内如果想使用选项参数的话,前边都要加上“-”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=5</div><div class="line">b=5</div><div class="line">if [ &quot;$a&quot; -eq &quot;$b&quot; ]</div><div class="line">then</div><div class="line">    echo &quot;a is equal to b.&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
-<p>运行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">a is equal to b.</div><div class="line">2.用于重定向stdin或stdout</div></pre></td></tr></table></figure>
-<p>下面脚本用于备份最后24小时当前目录下所有修改的文件.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
-<p>输入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">BACKUPFILE=backup-$(date +%m-%d-%Y)</div><div class="line"># 在备份文件中嵌入时间.</div><div class="line">archive=$&#123;1:-$BACKUPFILE&#125;</div><div class="line">#  如果在命令行中没有指定备份文件的文件名,</div><div class="line">#+ 那么将默认使用&quot;backup-MM-DD-YYYY.tar.gz&quot;.</div><div class="line"></div><div class="line">tar cvf - `find . -mtime -1 -type f -print` &gt; $archive.tar</div><div class="line">gzip $archive.tar</div><div class="line">echo &quot;Directory $PWD backed up in archive file \&quot;$archive.tar.gz\&quot;.&quot;</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>
-<p>运行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">$ ls</div></pre></td></tr></table></figure>
-<h2 id="波浪号（-）"><a href="#波浪号（-）" class="headerlink" title="波浪号（~）"></a>波浪号（~）</h2><h3 id="1-目录"><a href="#1-目录" class="headerlink" title="1.目录"></a>1.目录</h3><p>~ 表示 home 目录。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;小括号（-）&quot;&gt;&lt;a href=&quot;#小括号（-）&quot; class=&quot;headerlink&quot; title=&quot;小括号（( )）&quot;&gt;&lt;/a&gt;小括号（( )）&lt;/h2&gt;&lt;h3 id=&quot;1-命令组&quot;&gt;&lt;a href=&quot;#1-命令组&quot; class=&quot;headerlink&quot; ti
-    
-    </summary>
-    
-      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
-    
-    
-      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Bash介绍与入门</title>
     <link href="http://yoursite.com/2017/02/06/ch1-Bash%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2017/02/06/ch1-Bash介绍与入门/</id>
@@ -642,6 +555,93 @@
     <summary type="html">
     
       &lt;h2 id=&quot;符号&quot;&gt;&lt;a href=&quot;#符号&quot; class=&quot;headerlink&quot; title=&quot;# 符号&quot;&gt;&lt;/a&gt;# 符号&lt;/h2&gt;&lt;h3 id=&quot;1-注释&quot;&gt;&lt;a href=&quot;#1-注释&quot; class=&quot;headerlink&quot; title=&quot;1.# 注释&quot;&gt;&lt;/a&gt;1
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://yoursite.com/categories/Shell/"/>
+    
+    
+      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bash中的特殊字符（下）</title>
+    <link href="http://yoursite.com/2017/02/06/ch3-Bash%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/02/06/ch3-Bash中的特殊字符（下）/</id>
+    <published>2017-02-06T02:49:04.000Z</published>
+    <updated>2017-02-08T10:00:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="小括号（-）"><a href="#小括号（-）" class="headerlink" title="小括号（( )）"></a>小括号（( )）</h2><h3 id="1-命令组"><a href="#1-命令组" class="headerlink" title="1.命令组"></a>1.命令组</h3><p>在括号中的命令列表，将会作为一个子 shell 来运行。</p>
+<p>在括号中的变量，由于是在子shell中，所以对于脚本剩下的部分是不可用的。父进程，也就是脚本本身，将不能够读取在子进程中创建的变量，也就是在子shell 中创建的变量。如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=123</div><div class="line">( a=321; )</div><div class="line"></div><div class="line">echo &quot;a = $a&quot;</div></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">a = 123</div></pre></td></tr></table></figure>
+<p>在圆括号中 a 变量，更像是一个局部变量。</p>
+<h3 id="2-初始化数组"><a href="#2-初始化数组" class="headerlink" title="2.初始化数组"></a>2.初始化数组</h3><p>创建数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">arr=(1 4 5 7 9 21)</div><div class="line">echo $&#123;arr[3]&#125; # get a value of arr</div></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">7</div></pre></td></tr></table></figure>
+<h2 id="大括号（-）"><a href="#大括号（-）" class="headerlink" title="大括号（{ }）"></a>大括号（{ }）</h2><h3 id="1-文件名扩展"><a href="#1-文件名扩展" class="headerlink" title="1.文件名扩展"></a>1.文件名扩展</h3><p>复制 t.txt 的内容到 t.back 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">if [ ! -w &apos;t.txt&apos; ];</div><div class="line">then</div><div class="line">    touch t.txt</div><div class="line">fi</div><div class="line">echo &apos;test text&apos; &gt;&gt; t.txt</div><div class="line">cp t.&#123;txt,back&#125;</div></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div></pre></td></tr></table></figure>
+<p>查看运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">$ cat t.txt</div><div class="line">$ cat t.back</div></pre></td></tr></table></figure>
+<p>注意： 在大括号中，不允许有空白，除非这个空白被引用或转义。</p>
+<h3 id="2-代码块"><a href="#2-代码块" class="headerlink" title="2.代码块"></a>2.代码块</h3><p>代码块，又被称为内部组，这个结构事实上创建了一个匿名函数（一个没有名字的函数）。然而，与“标准”函数不同的是，在其中声明的变量，对于脚本其他部分的代码来说还是可见的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=123</div><div class="line">&#123; a=321; &#125;</div><div class="line">echo &quot;a = $a&quot;</div></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">a = 321</div></pre></td></tr></table></figure>
+<p>变量 a 的值被更改了。</p>
+<h2 id="中括号（-）"><a href="#中括号（-）" class="headerlink" title="中括号（[ ]）"></a>中括号（[ ]）</h2><h3 id="1-条件测试"><a href="#1-条件测试" class="headerlink" title="1.条件测试"></a>1.条件测试</h3><p>条件测试表达式放在[ ]中。值得注意的是[是shell内建test命令的一部分，并不是/usr/bin/test中的外部命令的一个链接。下列练习中的-lt (less than)表示小于号。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure></p>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=5</div><div class="line">if [ $a -lt 10 ]</div><div class="line">then</div><div class="line">    echo &quot;a: $a&quot;</div><div class="line">else</div><div class="line">    echo &apos;a&gt;10&apos;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">a: 5</div><div class="line">$</div></pre></td></tr></table></figure>
+<h3 id="2-数组元素"><a href="#2-数组元素" class="headerlink" title="2.数组元素"></a>2.数组元素</h3><p>在一个array结构的上下文中，中括号用来引用数组中每个元素的索引。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">arr=(12 22 32)</div><div class="line">arr[0]=10</div><div class="line">echo $&#123;arr[0]&#125;</div></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">10</div></pre></td></tr></table></figure>
+<h2 id="尖括号（-lt-和-gt-）"><a href="#尖括号（-lt-和-gt-）" class="headerlink" title="尖括号（&lt; 和 &gt;）"></a>尖括号（&lt; 和 &gt;）</h2><h3 id="1-重定向"><a href="#1-重定向" class="headerlink" title="1.重定向"></a>1.重定向</h3><p>test.sh &gt; filename 重定向test.sh的输出到文件 filename 中。如果 filename 存在的话，那么将会被覆盖。</p>
+<p>test.sh &amp;&gt; filename 重定向 test.sh 的 stdout（标准输出）和 stderr（标准错误）到 filename 中。</p>
+<p>test.sh &gt;&amp;2 重定向 test.sh 的 stdout 到 stderr 中。</p>
+<p>test.sh &gt;&gt; filename 把 test.sh 的输出追加到文件 filename 中。如果filename 不存在的话，将会被创建。</p>
+<h2 id="竖线（-）"><a href="#竖线（-）" class="headerlink" title="竖线（|）"></a>竖线（|）</h2><h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3><p>分析前边命令的输出，并将输出作为后边命令的输入。这是一种产生命令链的好方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">tr &apos;a-z&apos; &apos;A-Z&apos;</div><div class="line">exit 0</div></pre></td></tr></table></figure>
+<p>现在让我们输送ls -l的输出到一个脚本中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ chmod 755 test.sh</div><div class="line">$ ls -l | ./test.sh</div></pre></td></tr></table></figure>
+<p>输出的内容均变为了大写字母。</p>
+<h2 id="破折号（-）"><a href="#破折号（-）" class="headerlink" title="破折号（-）"></a>破折号（-）</h2><h3 id="1-选项，前缀"><a href="#1-选项，前缀" class="headerlink" title="1.选项，前缀"></a>1.选项，前缀</h3><p>在所有的命令内如果想使用选项参数的话,前边都要加上“-”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">a=5</div><div class="line">b=5</div><div class="line">if [ &quot;$a&quot; -eq &quot;$b&quot; ]</div><div class="line">then</div><div class="line">    echo &quot;a is equal to b.&quot;</div><div class="line">fi</div></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">a is equal to b.</div><div class="line">2.用于重定向stdin或stdout</div></pre></td></tr></table></figure>
+<p>下面脚本用于备份最后24小时当前目录下所有修改的文件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim test.sh</div></pre></td></tr></table></figure>
+<p>输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">BACKUPFILE=backup-$(date +%m-%d-%Y)</div><div class="line"># 在备份文件中嵌入时间.</div><div class="line">archive=$&#123;1:-$BACKUPFILE&#125;</div><div class="line">#  如果在命令行中没有指定备份文件的文件名,</div><div class="line">#+ 那么将默认使用&quot;backup-MM-DD-YYYY.tar.gz&quot;.</div><div class="line"></div><div class="line">tar cvf - `find . -mtime -1 -type f -print` &gt; $archive.tar</div><div class="line">gzip $archive.tar</div><div class="line">echo &quot;Directory $PWD backed up in archive file \&quot;$archive.tar.gz\&quot;.&quot;</div><div class="line"></div><div class="line">exit 0</div></pre></td></tr></table></figure>
+<p>运行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ bash test.sh</div><div class="line">$ ls</div></pre></td></tr></table></figure>
+<h2 id="波浪号（-）"><a href="#波浪号（-）" class="headerlink" title="波浪号（~）"></a>波浪号（~）</h2><h3 id="1-目录"><a href="#1-目录" class="headerlink" title="1.目录"></a>1.目录</h3><p>~ 表示 home 目录。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;小括号（-）&quot;&gt;&lt;a href=&quot;#小括号（-）&quot; class=&quot;headerlink&quot; title=&quot;小括号（( )）&quot;&gt;&lt;/a&gt;小括号（( )）&lt;/h2&gt;&lt;h3 id=&quot;1-命令组&quot;&gt;&lt;a href=&quot;#1-命令组&quot; class=&quot;headerlink&quot; ti
     
     </summary>
     
