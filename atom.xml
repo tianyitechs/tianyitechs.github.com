@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-15T10:21:38.000Z</updated>
+  <updated>2017-03-13T08:39:46.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>使用Python搭建聊天机器人</title>
+    <link href="http://yoursite.com/2017/03/13/robot/"/>
+    <id>http://yoursite.com/2017/03/13/robot/</id>
+    <published>2017-03-13T08:39:46.000Z</published>
+    <updated>2017-03-13T08:39:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>Python官网下载<a href="https://www.python.org/downloads/windows/" target="_blank" rel="external">安装包</a>,选择<strong>Download Windows x86-64 executable installer</strong>,一路next,以安装到D盘根目录为例.以管理权限打开命令提示符,切换到Python安装目录的Scripts目录下,安装wxpy库，如图：<br><img src="./wxpy.png" alt="wxpy"><br>接下来安装translate库， 在当前命令窗口中执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip3.exe install tranlate</div></pre></td></tr></table></figure></p>
+<p>##源码部分<br>以下是源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">from wxpy import *</div><div class="line">import requests</div><div class="line">import json</div><div class="line">import time</div><div class="line">from translate import Translator</div><div class="line"></div><div class="line">def talk_aiml(msg):</div><div class="line">   </div><div class="line">    translator=Translator(to_lang=&apos;en&apos;,from_lang=&apos;zh&apos;)</div><div class="line">    backtranslator=Translator(to_lang=&apos;zh&apos;,from_lang=&apos;en&apos;)</div><div class="line">    msg_en=translator.translate(msg)</div><div class="line">    str=&apos;http://lwons.com/aiml?req=&apos;+msg_en</div><div class="line">    </div><div class="line">    r = requests.get(str)</div><div class="line">    return (backtranslator.translate(r.text))</div><div class="line"></div><div class="line"></div><div class="line">def talk(msg):</div><div class="line">    str=&apos;http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=&apos;+msg</div><div class="line">    r = requests.get(str)</div><div class="line">    print(r)</div><div class="line">    data=r.json()</div><div class="line">    print(data)</div><div class="line">    return data[&apos;content&apos;]</div><div class="line"></div><div class="line">robot = Robot()</div><div class="line"></div><div class="line">@robot.register()</div><div class="line">def reply_my_friend(msg):</div><div class="line">  print(msg)</div><div class="line">  return talk_aiml(msg.text)</div><div class="line"></div><div class="line">robot.start()</div></pre></td></tr></table></figure>
+<p>##执行<br>1.copy以上代码,保存到robot.py,以D盘根目录为例<br>打开程序列表中Python中IDLE<br><img src="./ide.png" alt="IDLE"></p>
+<p>选择File-&gt;Open,找到之前保存的robot.py,按F5执行，出现一个二维码，微信扫码可以启动脚本,然后可以enjoy这段脚本了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h2&gt;&lt;p&gt;Python官网下载&lt;a href=&quot;https://www.python.org/downloads/windows/&quot; target=&quot;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
+    
+  </entry>
+  
+  <entry>
     <title>机器学习基础概念</title>
     <link href="http://yoursite.com/2017/02/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
     <id>http://yoursite.com/2017/02/15/机器学习基础概念/</id>
     <published>2017-02-15T10:19:19.000Z</published>
-    <updated>2017-02-15T10:21:38.000Z</updated>
+    <updated>2017-03-13T08:04:57.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><strong>机器学习</strong>是如今人工智能领域中进展最大的方面，更多的初学者开始进入了这个领域。</p>
 <p>机器学习是人工智能的一个分支，它通过构建算法让计算机学习，并且在数据集上使用这些算法来完成任务。那意味着我们可以对计算机进行编码，让它们自己去学习东西！</p>
@@ -74,7 +101,7 @@
 <p>有很多机器学习算法，不过我们来简要介绍下三种流行的算法：</p>
 <h3 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h3><p>该模型试图构建一个超平面高维空间集，它试图通过计算与最近实例最大距离来区分不同类的实例。这个概念直观简单，但是该模型有时候也会非常复杂和强大。事实上，对于某些领域支持向量机是你目前可以使用的最好的机器算法之一。</p>
 <h3 id="概率模型"><a href="#概率模型" class="headerlink" title="概率模型"></a>概率模型</h3><p>这类模型通常通过对问题进行概率分布建模来预测正确的响应。这类算法中最流行的可能要属朴素贝叶斯分类器了，它使用贝叶斯定理和特征之间独立性假设来构建分类器。这个模型的优势之一是即简单又强大，而且不仅会返回预测值还会返回预测值的确定度，这是非常有用的。</p>
-<h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><p>是基于大名鼎鼎的人工神经网络模型的机器学习的新领域。神经网络有着联结的操作方式，它们试图模仿（以非常简单的方式）大脑的工作方式。基本上，它们由一组相互关联的神经元（处理的基本单位）组成，这些神经元被组织成许多层。简单来说，深度学习使用更深的层构建了新的结构，通过高层次抽象改进了算法，不仅改进了学习方式，而且构建了自动表示最重要特征的结构。</p>
+<h3 id="深度学习："><a href="#深度学习：" class="headerlink" title="深度学习："></a>深度学习：</h3><p>是基于大名鼎鼎的人工神经网络模型的机器学习的新领域。神经网络有着联结的操作方式，它们试图模仿（以非常简单的方式）大脑的工作方式。基本上，它们由一组相互关联的神经元（处理的基本单位）组成，这些神经元被组织成许多层。简单来说，深度学习使用更深的层构建了新的结构，通过高层次抽象改进了算法，不仅改进了学习方式，而且构建了自动表示最重要特征的结构。</p>
 <h2 id="机器学习中的重要方面"><a href="#机器学习中的重要方面" class="headerlink" title="机器学习中的重要方面"></a>机器学习中的重要方面</h2><p>机器学习听起来是个美妙的概念，它确实如此，但是机器学习中有一些过程并不是那么自动完成的。事实上，在设计解决方案时，很多时候需要人工操作。然而，这是得到优良结果至关重要的一环。其中一些方面有：</p>
 <p>我该使用哪类机器学习算法？</p>
 <p>监督式还是非监督式？</p>
