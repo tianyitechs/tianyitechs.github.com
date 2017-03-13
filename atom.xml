@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-13T08:51:27.000Z</updated>
+  <updated>2017-03-13T08:58:28.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,15 +20,14 @@
     <link href="http://yoursite.com/2017/03/13/robot/"/>
     <id>http://yoursite.com/2017/03/13/robot/</id>
     <published>2017-03-13T08:39:46.000Z</published>
-    <updated>2017-03-13T08:51:27.000Z</updated>
+    <updated>2017-03-13T08:58:28.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>Python官网下载<a href="https://www.python.org/downloads/windows/" target="_blank" rel="external">安装包</a>,选择<strong>Download Windows x86-64 executable installer</strong>,一路next,以安装到D盘根目录为例.以管理权限打开命令提示符,切换到Python安装目录的Scripts目录下,安装wxpy库，如图：<br><img src="/img/wxpy.png" alt="wxpy"><br>接下来安装translate库， 在当前命令窗口中执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip3.exe install tranlate</div></pre></td></tr></table></figure></p>
 <h2 id="源码部分"><a href="#源码部分" class="headerlink" title="源码部分"></a>源码部分</h2><p>以下是源码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">from wxpy import *</div><div class="line">import requests</div><div class="line">import time</div><div class="line">from translate import Translator</div><div class="line"></div><div class="line">def talk_aiml(msg):</div><div class="line">   </div><div class="line">    translator=Translator(to_lang=&apos;en&apos;,from_lang=&apos;zh&apos;)</div><div class="line">    backtranslator=Translator(to_lang=&apos;zh&apos;,from_lang=&apos;en&apos;)</div><div class="line">    msg_en=translator.translate(msg)</div><div class="line">    str=&apos;http://lwons.com/aiml?req=&apos;+msg_en</div><div class="line">    </div><div class="line">    r = requests.get(str)</div><div class="line">    return (backtranslator.translate(r.text))</div><div class="line"></div><div class="line"></div><div class="line">def talk(msg):</div><div class="line">    str=&apos;http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=&apos;+msg</div><div class="line">    r = requests.get(str)</div><div class="line">    print(r)</div><div class="line">    data=r.json()</div><div class="line">    print(data)</div><div class="line">    return data[&apos;content&apos;]</div><div class="line"></div><div class="line">robot = Robot()</div><div class="line"></div><div class="line">@robot.register()</div><div class="line">def reply_my_friend(msg):</div><div class="line">  print(msg)</div><div class="line">  return talk_aiml(msg.text)</div><div class="line"></div><div class="line">robot.start()</div></pre></td></tr></table></figure>
-<p>##执行<br>1.copy以上代码,保存到robot.py,以D盘根目录为例<br>打开程序列表中Python中IDLE<br><img src="/img/ide.png" alt="IDLE"></p>
+<h2 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h2><p>1.copy以上代码,保存到robot.py,以D盘根目录为例<br>打开程序列表中Python中IDLE<br><img src="/img/ide.png" alt="IDLE"></p>
 <p>选择File-&gt;Open,找到之前保存的robot.py,按F5执行，出现一个二维码，微信扫码可以启动脚本,然后可以enjoy这段脚本了。</p>
-<p>##后话</p>
-<p>以上使用的web接口是<strong>AIML</strong>提供的,默认只支持英文，以上脚本中使用了tranlate库转换中英文,效果不甚理想，如果想要尝试英文的话，直接拿到tranlate部分就好。提前尝鲜请扫以下二维码.<img src="/img/robot.png" alt="robot"></p>
+<h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>以上使用的web接口是<strong>AIML</strong>提供的,默认只支持英文，以上脚本中使用了tranlate库转换中英文,效果不甚理想，如果想要尝试英文的话，直接拿到tranlate部分就好。提前尝鲜请扫以下二维码.<img src="/img/robot.png" alt="robot"></p>
 ]]></content>
     
     <summary type="html">
