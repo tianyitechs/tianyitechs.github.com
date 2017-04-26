@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-03-13T09:02:51.000Z</updated>
+  <updated>2017-04-11T09:41:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>matplotlib数据可视化</title>
+    <link href="http://yoursite.com/2017/04/11/matplotlib%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>http://yoursite.com/2017/04/11/matplotlib数据可视化/</id>
+    <published>2017-04-11T09:41:04.000Z</published>
+    <updated>2017-04-11T09:41:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="1-Figure"><a href="#1-Figure" class="headerlink" title="1.Figure"></a>1.Figure</h3><p>matplotlib的图像都位于figure对象中，相当于一块画布。figure的属性figsize用来设置figure的大小</p>
+<h3 id="2-Axes"><a href="#2-Axes" class="headerlink" title="2.Axes"></a>2.Axes</h3><p>在matplotlib中用Axes对象表示一个绘图区域，可以理解为子图。可以使用subplot()快速绘制包含多个子图的图表<br>subplot将整个绘图区域等分为numRows行* numCols列个子区域，然后按照从左到右，从上到下的顺序对每个子区域进行编号，左上的子区域的编号为1。如果numRows，numCols和plotNum这三个数都小于10的话，可以把它们缩写为一个整数，例如subplot(323)和subplot(3,2,3)是相同的。subplot在plotNum指定的区域中创建一个轴对象。如果新创建的轴和之前创建的轴重叠的话，之前的轴将被删除。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#多axes</div><div class="line">from matplotlib import pyplot as plt</div><div class="line"></div><div class="line">for idx, color in enumerate(&apos;rgbyck&apos;):</div><div class="line">    plt.subplot(321 + idx, axisbg=color)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
+<h2 id="图类型"><a href="#图类型" class="headerlink" title="图类型"></a>图类型</h2><h3 id="1-折线图"><a href="#1-折线图" class="headerlink" title="1.折线图"></a>1.折线图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#折线图</div><div class="line">x = [1, 2, 3, 4, 5]# Make an array of x values</div><div class="line">y = [1, 4, 9, 16, 25]# Make an array of y values for each x value</div><div class="line">plt.plot(x, y)# use pylab to plot x and y</div><div class="line">plt.show()# show the plot on the screen</div></pre></td></tr></table></figure>
+<h3 id="2-散点图"><a href="#2-散点图" class="headerlink" title="2. 散点图"></a>2. 散点图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#散点图</div><div class="line">x = [1, 2, 3, 4, 5]# Make an array of x values</div><div class="line">y = [1, 4, 9, 16, 25]# Make an array of y values for each x value</div><div class="line">plt.plot(x, y, &apos;o&apos;)# use pylab to plot x and y</div><div class="line">plt.show()# show the plot on the screen</div></pre></td></tr></table></figure>
+<h3 id="3-直方图"><a href="#3-直方图" class="headerlink" title="3.直方图"></a>3.直方图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#直方图</div><div class="line">import numpy as np</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line">data = np.random.normal(5.0, 3.0, 1000)</div><div class="line">plt.hist(data)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基础概念&quot;&gt;&lt;a href=&quot;#基础概念&quot; class=&quot;headerlink&quot; title=&quot;基础概念&quot;&gt;&lt;/a&gt;基础概念&lt;/h2&gt;&lt;h3 id=&quot;1-Figure&quot;&gt;&lt;a href=&quot;#1-Figure&quot; class=&quot;headerlink&quot; title=&quot;1
+    
+    </summary>
+    
+      <category term="matplotlib" scheme="http://yoursite.com/categories/matplotlib/"/>
+    
+    
+      <category term="Bash" scheme="http://yoursite.com/tags/Bash/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Python搭建聊天机器人</title>
